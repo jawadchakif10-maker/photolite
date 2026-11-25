@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#1769e0">
+  <meta name="description" content="PhotoLite is a free online image compressor, resizer and converter.">
+  <title>PhotoLite — Image Compressor</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="PhotoLite home"><span class="brand-icon">P</span> Photo<span>Lite</span></a>
+    <span class="free-pill">FREE ONLINE TOOL</span>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="eyebrow"><span class="sparkle">✦</span> SIMPLE · FAST · PRIVATE</div>
+      <h1>Make images <span>lighter.</span></h1>
+      <p>Compress, resize and convert your images in seconds. Your files stay on your device.</p>
+    </section>
+
+    <section class="workspace" aria-label="Image tools">
+      <div class="upload-panel" id="dropZone">
+        <input id="fileInput" type="file" accept="image/jpeg,image/png,image/webp,image/bmp,image/gif" hidden>
+        <div class="upload-icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48"><path d="M24 32V8m0 0-9 9m9-9 9 9M9 29v10a3 3 0 0 0 3 3h24a3 3 0 0 0 3-3V29"/></svg>
+        </div>
+        <h2>Drop your image here</h2>
+        <p>or choose a file from your device</p>
+        <button class="button primary" id="chooseBtn" type="button">Choose image</button>
+        <small>JPG, PNG, WEBP, BMP or GIF · Max 20 MB</small>
+      </div>
+
+      <div class="editor hidden" id="editor">
+        <div class="file-heading">
+          <div class="file-symbol">IMG</div>
+          <div class="file-info"><strong id="fileName">image.jpg</strong><span id="fileMeta">0 KB</span></div>
+          <button class="text-button" id="removeBtn" type="button">Remove</button>
+        </div>
+
+        <div class="preview-wrap">
+          <img id="preview" alt="Selected image preview">
+        </div>
+
+        <div class="settings">
+          <div class="setting-block">
+            <div class="setting-title"><label for="quality">Image quality</label><strong id="qualityValue">80%</strong></div>
+            <input id="quality" type="range" min="10" max="100" value="80">
+            <div class="range-labels"><span>Smaller file</span><span>Higher quality</span></div>
+          </div>
+
+          <div class="setting-block">
+            <div class="setting-title"><span>Resize dimensions</span><label class="check-label"><input id="keepRatio" type="checkbox" checked> Keep ratio</label></div>
+            <div class="dimension-grid">
+              <label>Width (px)<input id="widthInput" type="number" min="1" max="12000" placeholder="Original"></label>
+              <label>Height (px)<input id="heightInput" type="number" min="1" max="12000" placeholder="Original"></label>
+            </div>
+            <p class="hint" id="dimensionsHint">Leave both fields empty to keep original dimensions.</p>
+          </div>
+
+          <div class="setting-block">
+            <label class="field-label" for="format">Output format</label>
+            <select id="format">
+              <option value="image/webp">WebP — recommended</option>
+              <option value="image/jpeg">JPG</option>
+              <option value="image/png">PNG — larger files</option>
+            </select>
+            <p class="hint">Transparency is preserved in PNG and WebP. JPG does not support transparency.</p>
+          </div>
+        </div>
+
+        <button class="button primary full" id="processBtn" type="button">Compress image</button>
+        <div class="status" id="status" role="status" aria-live="polite"></div>
+
+        <section class="result hidden" id="result">
+          <div class="result-title">Your image is ready <span class="success-dot">✓</span></div>
+          <div class="result-grid">
+            <div><span>Original size</span><strong id="originalSize">—</strong></div>
+            <div><span>New size</span><strong id="newSize">—</strong></div>
+            <div><span>Saved</span><strong id="savedSize">—</strong></div>
+          </div>
+          <div class="result-preview"><img id="resultPreview" alt="Compressed image preview"></div>
+          <a class="button download full" id="downloadBtn" download="photolite-image.webp">Download image</a>
+        </section>
+      </div>
+    </section>
+
+    <section class="features">
+      <article><div class="feature-icon">↘</div><h3>Smaller files</h3><p>Reduce image file size while choosing the quality you need.</p></article>
+      <article><div class="feature-icon">▣</div><h3>Resize easily</h3><p>Set custom width and height, with optional aspect ratio lock.</p></article>
+      <article><div class="feature-icon">⇄</div><h3>Convert formats</h3><p>Export as WebP, JPG or PNG in a few taps.</p></article>
+    </section>
+
+    <p class="privacy-note"><span>🔒</span> Privacy first: image processing happens locally in your browser. Your images are not uploaded to PhotoLite.</p>
+  </main>
+
+  <footer>© <span id="year"></span> PhotoLite · Free image tools</footer>
+  <script src="app.js"></script>
+</body>
+</html>
