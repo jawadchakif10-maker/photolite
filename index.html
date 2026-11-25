@@ -4,13 +4,32 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#1769e0">
-  <meta name="description" content="PhotoLite is a free online image compressor, resizer and converter.">
-  <title>PhotoLite — Image Compressor</title>
+  <meta name="description" content="Compress, resize and convert images online for free with PhotoLite. Reduce image file size to WebP, JPG or PNG directly in your browser.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://jawadchakif10-maker.github.io/photolite/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="PhotoLite — Free Online Image Compressor">
+  <meta property="og:description" content="Compress, resize and convert images in seconds. Your images are processed locally in your browser.">
+  <meta property="og:url" content="https://jawadchakif10-maker.github.io/photolite/">
+  <meta name="twitter:card" content="summary">
+  <title>PhotoLite — Free Online Image Compressor, Resizer & Converter</title>
   <link rel="stylesheet" href="style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "PhotoLite",
+    "url": "https://jawadchakif10-maker.github.io/photolite/",
+    "applicationCategory": "MultimediaApplication",
+    "operatingSystem": "Any",
+    "browserRequirements": "Requires a modern web browser with Canvas support",
+    "description": "Free browser-based image compressor, resizer and converter for WebP, JPG and PNG."
+  }
+  </script>
 </head>
 <body>
   <header class="topbar">
-    <a class="brand" href="#" aria-label="PhotoLite home"><span class="brand-icon">P</span> Photo<span>Lite</span></a>
+    <a class="brand" href="index.html" aria-label="PhotoLite home"><span class="brand-icon">P</span> Photo<span>Lite</span></a>
     <span class="free-pill">FREE ONLINE TOOL</span>
   </header>
 
@@ -18,10 +37,10 @@
     <section class="hero">
       <div class="eyebrow"><span class="sparkle">✦</span> SIMPLE · FAST · PRIVATE</div>
       <h1>Make images <span>lighter.</span></h1>
-      <p>Compress, resize and convert your images in seconds. Your files stay on your device.</p>
+      <p>Compress, resize and convert images online for free. Choose WebP, JPG or PNG and process your files directly in your browser.</p>
     </section>
 
-    <section class="workspace" aria-label="Image tools">
+    <section class="workspace" aria-label="Free online image compressor and converter">
       <div class="upload-panel" id="dropZone">
         <input id="fileInput" type="file" accept="image/jpeg,image/png,image/webp,image/bmp,image/gif" hidden>
         <div class="upload-icon" aria-hidden="true">
@@ -39,18 +58,15 @@
           <div class="file-info"><strong id="fileName">image.jpg</strong><span id="fileMeta">0 KB</span></div>
           <button class="text-button" id="removeBtn" type="button">Remove</button>
         </div>
-
         <div class="preview-wrap">
-          <img id="preview" alt="Selected image preview">
+          <img id="preview" alt="Preview of the selected image">
         </div>
-
         <div class="settings">
           <div class="setting-block">
             <div class="setting-title"><label for="quality">Image quality</label><strong id="qualityValue">80%</strong></div>
             <input id="quality" type="range" min="10" max="100" value="80">
             <div class="range-labels"><span>Smaller file</span><span>Higher quality</span></div>
           </div>
-
           <div class="setting-block">
             <div class="setting-title"><span>Resize dimensions</span><label class="check-label"><input id="keepRatio" type="checkbox" checked> Keep ratio</label></div>
             <div class="dimension-grid">
@@ -59,7 +75,6 @@
             </div>
             <p class="hint" id="dimensionsHint">Leave both fields empty to keep original dimensions.</p>
           </div>
-
           <div class="setting-block">
             <label class="field-label" for="format">Output format</label>
             <select id="format">
@@ -70,10 +85,8 @@
             <p class="hint">Transparency is preserved in PNG and WebP. JPG does not support transparency.</p>
           </div>
         </div>
-
         <button class="button primary full" id="processBtn" type="button">Compress image</button>
         <div class="status" id="status" role="status" aria-live="polite"></div>
-
         <section class="result hidden" id="result">
           <div class="result-title">Your image is ready <span class="success-dot">✓</span></div>
           <div class="result-grid">
@@ -81,22 +94,46 @@
             <div><span>New size</span><strong id="newSize">—</strong></div>
             <div><span>Saved</span><strong id="savedSize">—</strong></div>
           </div>
-          <div class="result-preview"><img id="resultPreview" alt="Compressed image preview"></div>
+          <div class="result-preview"><img id="resultPreview" alt="Preview of the processed image"></div>
           <a class="button download full" id="downloadBtn" download="photolite-image.webp">Download image</a>
         </section>
       </div>
     </section>
 
     <section class="features">
-      <article><div class="feature-icon">↘</div><h3>Smaller files</h3><p>Reduce image file size while choosing the quality you need.</p></article>
-      <article><div class="feature-icon">▣</div><h3>Resize easily</h3><p>Set custom width and height, with optional aspect ratio lock.</p></article>
-      <article><div class="feature-icon">⇄</div><h3>Convert formats</h3><p>Export as WebP, JPG or PNG in a few taps.</p></article>
+      <article><div class="feature-icon">↘</div><h3>Compress images</h3><p>Reduce image file size and choose the quality that works for you.</p></article>
+      <article><div class="feature-icon">▣</div><h3>Resize photos</h3><p>Set custom image width and height with an optional aspect-ratio lock.</p></article>
+      <article><div class="feature-icon">⇄</div><h3>Convert image formats</h3><p>Export images as WebP, JPG or PNG in a few taps.</p></article>
     </section>
 
-    <p class="privacy-note"><span>🔒</span> Privacy first: image processing happens locally in your browser. Your images are not uploaded to PhotoLite.</p>
+    <section class="features" aria-label="About PhotoLite">
+      <article style="grid-column:1/-1">
+        <h2>Free online image compressor</h2>
+        <p>PhotoLite helps you compress images, resize photos and convert image formats without installing an app. Select an image, adjust the quality and dimensions, choose an output format, then download the processed file. Image processing runs in your browser on your device.</p>
+      </article>
+    </section>
+
+    <section class="features" aria-label="Frequently asked questions">
+      <article style="grid-column:1/-1">
+        <h2>Frequently asked questions</h2>
+        <h3>Is PhotoLite free?</h3>
+        <p>Yes. PhotoLite is currently available as a free browser-based image tool.</p>
+        <h3>Are my images uploaded?</h3>
+        <p>The image conversion and compression process runs locally in your browser. The tool does not send your selected image to a PhotoLite image-processing server.</p>
+        <h3>Which formats can I export?</h3>
+        <p>You can export processed images as WebP, JPG or PNG. JPG does not preserve transparent backgrounds.</p>
+        <h3>Can I resize an image?</h3>
+        <p>Yes. Enter a width and height in pixels. Keep ratio is enabled by default to preserve the image proportions.</p>
+      </article>
+    </section>
+
+    <p class="privacy-note"><span>🔒</span> Privacy first: image processing happens locally in your browser. Your selected image is not uploaded to PhotoLite for processing.</p>
   </main>
 
-  <footer>© <span id="year"></span> PhotoLite · Free image tools</footer>
+  <footer>
+    <div>© <span id="year"></span> PhotoLite · Free image tools</div>
+    <nav aria-label="Legal links"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a></nav>
+  </footer>
   <script src="app.js"></script>
 </body>
 </html>
