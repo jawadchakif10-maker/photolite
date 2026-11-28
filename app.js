@@ -8,6 +8,7 @@ const fileMeta = document.getElementById('fileMeta');
 const removeBtn = document.getElementById('removeBtn');
 const quality = document.getElementById('quality');
 const qualityValue = document.getElementById('qualityValue');
+const targetSize = document.getElementById('targetSize');
 const widthInput = document.getElementById('widthInput');
 const heightInput = document.getElementById('heightInput');
 const keepRatio = document.getElementById('keepRatio');
@@ -143,7 +144,27 @@ function canvasToBlob(canvas, mime, q) {
 }
 
 processBtn.addEventListener('click', async () => {
-  if (!sourceImage || !currentFile) return;
+  if (!sourceImage || !currentFile) return;async function compressToTarget(canvas, mime, targetKB) {
+  let low = 0.1;
+  let high = 1;
+  let bestBlob = await canvasToBlob(canvas, mime, low);
+
+  if (bestBlob.size <= targetKB * 1024) {
+    for (let i = 0; i < 8; i++) {
+      const mid = (low + high) / 2;
+      const blob = await canvasToBlob(canvas, mime, mid);
+
+      if (blob.size <= targetKB * 1024) {
+        bestBlob = blob;
+        low = mid;
+      } else {
+        high = mid;
+      }
+    }
+  }
+
+  return bestBlob;
+}
   processBtn.disabled = true;
   processBtn.textContent = 'Processing…';
   statusBox.textContent = 'Processing your image on this device…';
@@ -167,8 +188,10 @@ processBtn.addEventListener('click', async () => {
     ctx.imageSmoothingQuality = 'high';
     ctx.drawImage(sourceImage, 0, 0, w, h);
 
-    const q = Number(quality.value) / 100;
-    const blob = await canvasToBlob(canvas, mime, q);
+    const targetKB = Number(targetSize.value);
+const blob = targetSize.value.trim() && targetKB > 0
+  ? await compressToTarget(canvas, mime, targetKB)
+  : await canvasToBlob(canvas, mime, q);
     outputUrl = URL.createObjectURL(blob);
 
     const extension = mime === 'image/jpeg' ? 'jpg' : mime === 'image/png' ? 'png' : 'webp';
